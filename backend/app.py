@@ -21,15 +21,12 @@ app = FastAPI()
 # Add CORS middleware to allow frontend to communicate with backend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, replace with specific frontend URL
+    allow_origins=["*",'https://customer-churn-prediction-gilt.vercel.app'],  # In production, replace with specific frontend URL
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["*"],
+    expose_headers=["*"],
 )
-
-@app.get("/")
-async def root():
-    return {"message": "Customer Churn Prediction API is running"}
 
 @app.post("/upload_csv/")
 async def upload_csv(file: UploadFile = File(...)):
