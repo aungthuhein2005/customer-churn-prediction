@@ -8,6 +8,7 @@ import { ArrowRight, Loader2 } from 'lucide-react';
 import { dataStore } from '../utils/dataStore';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
 import { HelpCircle } from 'lucide-react';
+import { BACKEND_API } from '../utils/config';
 
 export function PreprocessingOptions() {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ export function PreprocessingOptions() {
     setIsAnalyzing(true);
     
     try {
-      const response = await fetch('http://localhost:8000/predict/', {
+      const response = await fetch(`${BACKEND_API}/predict/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

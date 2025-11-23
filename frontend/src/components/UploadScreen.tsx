@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/
 import { Upload, FileText, AlertCircle } from 'lucide-react';
 import { Alert, AlertDescription } from './ui/alert';
 import { dataStore } from '../utils/dataStore';
+import { BACKEND_API } from '../utils/config';
 
 export function UploadScreen() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -49,7 +50,7 @@ export function UploadScreen() {
       formData.append('file', selectedFile);
 
       // Upload file to backend
-      const response = await fetch('http://localhost:8000/upload_csv/', {
+      const response = await fetch(`${BACKEND_API}/upload_csv/`, {
         method: 'POST',
         body: formData,
       });

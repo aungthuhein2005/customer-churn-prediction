@@ -55,7 +55,7 @@ export function ResultsDashboard() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center md:flex-row flex-col md:justify-between justify-center gap-4">
         <div>
           <h2>Customer Churn Analysis Results 📊</h2>
           <p className="text-gray-600">Analysis completed successfully</p>
@@ -74,7 +74,7 @@ export function ResultsDashboard() {
 
       {/* Summary Statistics */}
       {summary && (
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <Card>
             <CardHeader className="pb-2">
               <CardDescription>Total Customers</CardDescription>
